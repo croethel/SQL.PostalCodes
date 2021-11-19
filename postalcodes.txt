@@ -1,0 +1,31 @@
+Terminal steps taken to import to MySQL:
+1. Create database in MySQL
+    a. 'mysql -u root -p'
+    b. 'CREATE DATABASE going_postal;'
+    c. ctrl + d (exit MySQL)
+2. Unzip zipcodes.zip
+    a. Go to needed directory (sql_import)
+    b. 'unzip zipcodes.zip'
+3. Import sql file
+    a. 'mysql -u root -p going_postal < zipcodes.sql'
+
+
+Accessing database:
+1. 'mysql -u root -p'
+2. 'SHOW DATABASES;'
+3. 'USE going_postal;'
+4. 'SHOW TABLES;'
+5. 'describe zipcodes;'
+    returns:
+    +-----------+---------------+------+-----+----------+-------+
+    | Field     | Type          | Null | Key | Default  | Extra |
+    +-----------+---------------+------+-----+----------+-------+
+    | zip       | varchar(16)   | NO   | MUL | 0        |       |
+    | city      | varchar(30)   | NO   |     |          |       |
+    | state     | varchar(30)   | NO   |     |          |       |
+    | latitude  | decimal(10,6) | NO   | MUL | 0.000000 |       |
+    | longitude | decimal(10,6) | NO   | MUL | 0.000000 |       |
+    | county    | varchar(30)   | YES  |     | NULL     |       |
+    | state_id  | varchar(16)   | YES  |     | NULL     |       |
+    | timezone  | varchar(255)  | YES  |     | NULL     |       |
+    +-----------+---------------+------+-----+----------+-------+
